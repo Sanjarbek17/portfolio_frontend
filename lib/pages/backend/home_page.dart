@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_frontend/pages/backend/providers/page_index_provider.dart';
+import 'package:provider/provider.dart';
 
+import '../../core/style/colors.dart';
 import 'about_me_page.dart';
 import 'contacts_page.dart';
 import 'projects_page.dart';
+import 'widgets/nav_bar_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,7 +18,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int selectedPageIndex = 0;
   List<Widget> pages = const <Widget>[
     MainPage(),
     AboutMePage(),
@@ -25,16 +28,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sanjarbek'),
-        actions: [
-          TextButton(onPressed: () {}, child: const Text('#Home')),
-          TextButton(onPressed: () {}, child: const Text('#Projects')),
-          TextButton(onPressed: () {}, child: const Text('#About Me')),
-          TextButton(onPressed: () {}, child: const Text('#Contacts')),
-        ],
+      backgroundColor: background,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 32.0),
+        child: Consumer<PageIndexProvider>(builder: (context, value, child) => pages[value.pageIndex]),
       ),
-      body: pages[selectedPageIndex],
     );
   }
 }
@@ -44,8 +42,42 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Main Page'),
+    return Column(
+      children: [
+        const NavBar(currentPageIndex: 0),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1),
+          child: const Row(
+            children: [
+              SizedBox(
+                width: 537,
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Sanjarbek is a ',
+                        style: TextStyle(color: Colors.white, fontSize: 32, fontFamily: 'Fira Code', fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: 'back-end developer',
+                        style: TextStyle(color: Color(0xFFC778DD), fontSize: 32, fontFamily: 'Fira Code', fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: ' and ',
+                        style: TextStyle(color: Colors.white, fontSize: 32, fontFamily: 'Fira Code', fontWeight: FontWeight.w600),
+                      ),
+                      TextSpan(
+                        text: 'front-end developer',
+                        style: TextStyle(color: Color(0xFFC778DD), fontSize: 32, fontFamily: 'Fira Code', fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
