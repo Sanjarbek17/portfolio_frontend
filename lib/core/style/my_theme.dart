@@ -14,4 +14,10 @@ ThemeData theme = ThemeData(
     fontFamily: 'Fira Code',
     fontWeight: FontWeight.w500,
   ),
+  titleLarge: TextStyle(
+    color: Colors.white,
+    fontSize: 32,
+    fontFamily: 'Fira Code',
+    fontWeight: FontWeight.w500,
+  ),
 ));

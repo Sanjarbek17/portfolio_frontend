@@ -74,14 +74,17 @@ class NavBar extends StatelessWidget {
 
   TextButton navbarButton(BuildContext context, String text, {int selected = 0}) {
     return TextButton(
-        onPressed: () {
-          context.read<PageIndexProvider>().setPageIndex(selected);
-        },
-        child: Text.rich(TextSpan(
+      onPressed: () {
+        context.read<PageIndexProvider>().setPageIndex(selected);
+      },
+      child: Text.rich(
+        TextSpan(
           children: [
             TextSpan(text: '#', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: primary)),
             TextSpan(text: text, style: Theme.of(context).textTheme.titleSmall!.copyWith(color: selected == currentPageIndex ? white : gray)),
           ],
-        )));
+        ),
+      ),
+    );
   }
 }

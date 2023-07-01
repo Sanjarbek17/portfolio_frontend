@@ -21,9 +21,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<Widget> pages = const <Widget>[
     MainPage(),
+    ProjectPage(),
     AboutMePage(),
     ContactPage(),
-    ProjectPage(),
   ];
 
   @override
