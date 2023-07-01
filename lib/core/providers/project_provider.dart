@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/repositories/portfolio_repository.dart';
-import '../../../core/models/project_model.dart';
+import '../repositories/portfolio_repository.dart';
+import '../models/project_model.dart';
 
 enum ProjectType {
   frontend,

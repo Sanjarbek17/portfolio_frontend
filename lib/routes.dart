@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'pages/backend/home_page.dart' as backend_page;
+
+
+
 abstract class RouteGenerator {
   static const String home = '/';
-  static const String login = '/login';
+  static const String frontend = '/frontend';
+  static const String backend = '/backend';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -12,11 +17,15 @@ abstract class RouteGenerator {
             body: Center(child: Text('Home')),
           ),
         );
-      case login:
+      case frontend:
         return MaterialPageRoute<dynamic>(
           builder: (_) => const Scaffold(
-            body: Center(child: Text('Login')),
+            body: Center(child: Text('Frontend')),
           ),
+        );
+      case backend:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => const backend_page.HomePage(),
         );
       default:
         throw const FormatException('Route not found');

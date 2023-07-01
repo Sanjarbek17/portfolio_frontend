@@ -12,12 +12,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Portfolio',
       theme: ThemeData(primarySwatch: Colors.blue),
-      
+
       // Compare this snippet from lib\routes.dart:
       onGenerateRoute: RouteGenerator.generateRoute,
-      initialRoute: RouteGenerator.home,
+      initialRoute: RouteGenerator.backend,
       onUnknownRoute: RouteGenerator.unknownRoute,
     );
   }

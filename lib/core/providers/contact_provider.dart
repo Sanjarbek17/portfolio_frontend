@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/repositories/portfolio_repository.dart';
-import '../../../core/models/contact_model.dart';
+import '../repositories/portfolio_repository.dart';
+import '../models/contact_model.dart';
 
 class ContactProvider extends ChangeNotifier {
   ContactProvider({required this.repository});

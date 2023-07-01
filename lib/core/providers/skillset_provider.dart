@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/repositories/portfolio_repository.dart';
-import '../../../core/models/skill_model.dart';
+import '../repositories/portfolio_repository.dart';
+import '../models/skill_model.dart';
 
 class SkillsetProvider extends ChangeNotifier {
   SkillsetProvider({required this.repository});

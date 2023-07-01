@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/repositories/portfolio_repository.dart';
-import '../../../core/models/about_me_model.dart';
+import '../repositories/portfolio_repository.dart';
+import '../models/about_me_model.dart';
 
 
 class AboutMeProvider extends ChangeNotifier {
