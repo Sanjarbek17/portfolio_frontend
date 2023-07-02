@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio_frontend/pages/backend/providers/page_index_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/style/colors.dart';
+import '../../../core/style/colors.dart';
+import '../providers/page_index_provider.dart';
+import '../widgets/nav_bar_widget.dart';
 import 'about_me_page.dart';
 import 'contacts_page.dart';
 import 'projects_page.dart';
-import 'widgets/nav_bar_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
