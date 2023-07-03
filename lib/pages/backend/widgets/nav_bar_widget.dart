@@ -22,13 +22,12 @@ class NavBar extends StatelessWidget {
             left: -1 * MediaQuery.of(context).size.width * 0.07,
             child: Column(
               children: [
-                // VerticalDivider(color: white, thickness: 10, width: 10),
                 Container(
                   width: 1,
                   height: 190,
                   color: gray,
                 ),
-                // FIXME: buttons now pressing because of the stack
+                // FIXME: bu  pressing because its out of the stack
                 const SizedBox(height: 8),
                 const InkWell(child: Icon(Icons.discord, color: gray, size: 17)),
                 const SizedBox(height: 8),
@@ -38,7 +37,7 @@ class NavBar extends StatelessWidget {
               ],
             )),
         Padding(
-          padding: const EdgeInsets.only(top: 32),
+          padding: const EdgeInsets.only(top: 32, bottom: 16),
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
             child: Row(
@@ -81,7 +80,7 @@ class NavBar extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(text: '#', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: primary)),
-            TextSpan(text: text, style: Theme.of(context).textTheme.titleSmall!.copyWith(color: selected == currentPageIndex ? white : gray)),
+            TextSpan(text: text, style: Theme.of(context).textTheme.titleSmall!.copyWith(color: selected==context.watch<PageIndexProvider>().index ? white : gray)),
           ],
         ),
       ),

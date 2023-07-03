@@ -12,6 +12,7 @@ class LinkButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: Make this button work
+    // FIXME: It does no viewing correctly
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: Align(

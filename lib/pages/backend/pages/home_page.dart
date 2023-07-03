@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../core/style/colors.dart';
 import '../providers/page_index_provider.dart';
@@ -31,10 +32,22 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: background,
       // body: Consumer<PageIndexProvider>(builder: (context, value, child) => pages[value.pageIndex]),
-      body: ListView.builder(
-        itemCount: pages.length,
-        shrinkWrap: true,
-        itemBuilder: (context, index) => pages[index],
+      body: Consumer<PageIndexProvider>(
+        builder: (context, value, child) {
+          return Column(
+            children: [
+               const NavBar(currentPageIndex: 0),
+              Expanded(
+                child: ScrollablePositionedList.builder(
+                  itemCount: pages.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => pages[index],
+                  itemScrollController: value.itemScrollController,
+                ),
+              ),
+            ],
+          );
+        }
       ),
     );
   }
@@ -47,7 +60,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const NavBar(currentPageIndex: 0),
+       
         Padding(
           padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 60),
           child: Row(
