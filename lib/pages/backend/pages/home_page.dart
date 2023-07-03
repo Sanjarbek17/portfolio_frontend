@@ -30,7 +30,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
-      body: Consumer<PageIndexProvider>(builder: (context, value, child) => pages[value.pageIndex]),
+      // body: Consumer<PageIndexProvider>(builder: (context, value, child) => pages[value.pageIndex]),
+      body: ListView.builder(
+        itemCount: pages.length,
+        shrinkWrap: true,
+        itemBuilder: (context, index) => pages[index],
+      ),
     );
   }
 }

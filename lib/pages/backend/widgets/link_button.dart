@@ -11,13 +11,13 @@ class LinkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Make this a button
+    // TODO: Make this button work
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: Align(
         alignment: Alignment.centerLeft,
         child: SizedBox(
-          width: 110,
+          width: 120,
           height: 37,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
