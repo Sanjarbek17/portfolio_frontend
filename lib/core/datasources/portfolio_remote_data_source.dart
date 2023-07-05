@@ -26,9 +26,9 @@ class PortfolioRemoteDataSource {
 
   Future<AboutMeModel> getAboutMe() async {
     final response = await dio.get('about/');
-    final Map<String, dynamic> json = response.data as Map<String, dynamic>;
+    final List json = response.data as List<dynamic>;
     // TODO: multi language support
-    return AboutMeModel.fromJson(json);
+    return AboutMeModel.fromJson(json[0]);
   }
 
   Future<List<Skill>> getSkills() async {

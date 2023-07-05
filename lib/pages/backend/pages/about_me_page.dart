@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio_frontend/core/providers/about_me_provider.dart';
 import 'package:portfolio_frontend/pages/backend/widgets/headline_widget.dart';
 import 'package:portfolio_frontend/pages/backend/widgets/link_button.dart';
+import 'package:provider/provider.dart';
 
 class AboutMePage extends StatelessWidget {
   const AboutMePage({super.key});
@@ -17,28 +19,39 @@ class AboutMePage extends StatelessWidget {
           const SizedBox(height: 16),
           const HeadlineWidget(text: 'about-me'),
           const SizedBox(height: 16),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
+          Consumer<AboutMeProvider>(
+            builder: (context, provider, child) {
+              if (provider.status == AboutMeStatus.loading) {
+                provider.getAboutMe();
+                return const Center(child: CircularProgressIndicator());
+              } else if (provider.status == AboutMeStatus.loaded) {
+                return Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('About me asd;f aksdf;l kasdjf asdf ', style: Theme.of(context).textTheme.titleSmall),
-                    const SizedBox(height: 16),
-                    // FIXME: Button text is not showing fully
-                    LinkButton(
-                      text: 'Download CV <~~>',
-                      // TODO: IMPLEMENT THIS
-                      onTap: () {},
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(provider.aboutMe!.description, style: Theme.of(context).textTheme.titleSmall),
+                          const SizedBox(height: 16),
+                          // FIXME: Button text is not showing fully
+                          LinkButton(
+                            text: 'Download CV <~~>',
+                            // TODO: IMPLEMENT THIS
+                            onTap: () {},
+                          ),
+                        ],
+                      ),
                     ),
+                    Expanded(
+                      child: SizedBox(height: 500, child: Image.asset('assets/images/avatar2.png')),
+                    )
                   ],
-                ),
-              ),
-              Expanded(
-                child: SizedBox(height: 500, child: Image.asset('assets/images/avatar2.png')),
-              )
-            ],
+                );
+              } else {
+                return const Center(child: Text('Error'));
+              }
+            },
           ),
           const SizedBox(height: 180),
           // TITLE: Skills headline
