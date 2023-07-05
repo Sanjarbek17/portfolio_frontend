@@ -55,7 +55,8 @@ class ContactPage extends StatelessWidget {
                 ),
               )
             ],
-          )
+          ),
+          const SizedBox(height: 135),
         ],
       ),
     );

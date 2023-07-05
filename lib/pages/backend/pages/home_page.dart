@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio_frontend/pages/backend/pages/footer_page.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
@@ -20,35 +21,52 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();
   List<Widget> pages = const <Widget>[
     MainPage(),
     ProjectPage(),
     AboutMePage(),
     ContactPage(),
+    FooterPage(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    itemPositionsListener.itemPositions.addListener(() {
+      Provider.of<PageIndexProvider>(context, listen: false).changePageIndex(itemPositionsListener.itemPositions.value.first.index);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
       // body: Consumer<PageIndexProvider>(builder: (context, value, child) => pages[value.pageIndex]),
-      body: Consumer<PageIndexProvider>(
-        builder: (context, value, child) {
-          return Column(
-            children: [
-               const NavBar(currentPageIndex: 0),
-              Expanded(
-                child: ScrollablePositionedList.builder(
-                  itemCount: pages.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) => pages[index],
-                  itemScrollController: value.itemScrollController,
-                ),
+      body: Consumer<PageIndexProvider>(builder: (context, value, child) {
+        return Column(
+          children: [
+            const NavBar(currentPageIndex: 0),
+            Expanded(
+              child: ScrollablePositionedList.builder(
+                itemCount: pages.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  if (index==pages.length-1){
+                    return pages[index];
+                  }
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 180.0),
+                    child: pages[index],
+                  );
+                },
+                itemPositionsListener: itemPositionsListener,
+                itemScrollController: value.itemScrollController,
               ),
-            ],
-          );
-        }
-      ),
+            ),
+          ],
+        );
+      }),
     );
   }
 }
@@ -60,7 +78,6 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-       
         Padding(
           padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1, vertical: 60),
           child: Row(

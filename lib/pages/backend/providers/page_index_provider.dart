@@ -4,7 +4,12 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 class PageIndexProvider extends ChangeNotifier {
   final ItemScrollController itemScrollController = ItemScrollController();
  
-  int index = 0;
+  int index = 3;
+
+  void changePageIndex(int index) {
+    this.index = index;
+    notifyListeners();
+  }
 
   void setPageIndex(int index) {
     itemScrollController.scrollTo(

@@ -12,28 +12,7 @@ class AboutMePage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.1),
       child: Column(
         children: [
-          const HeadlineWidget(text: 'skills'),
           const SizedBox(height: 16),
-          // TITLE: Skills headline
-          Row(
-            children: [
-              Expanded(
-                flex: 2,
-                child: SvgPicture.asset('assets/icons/skills.svg'),
-              ),
-              // const Spacer(flex: 1),
-              const Expanded(
-                  flex: 4,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SkillWidget(itemCount: 1),
-                      SkillWidget(itemCount: 2),
-                      SkillWidget(itemCount: 3),
-                    ],
-                  ))
-            ],
-          ),
           // TITLE: About me headline
           const SizedBox(height: 16),
           const HeadlineWidget(text: 'about-me'),
@@ -56,7 +35,29 @@ class AboutMePage extends StatelessWidget {
                 child: SizedBox(height: 500, child: Image.asset('assets/images/avatar2.png')),
               )
             ],
-          )
+          ),
+          const SizedBox(height: 180),
+          // TITLE: Skills headline
+          const HeadlineWidget(text: 'skills'),
+          Row(
+            children: [
+              Expanded(
+                flex: 2,
+                child: SvgPicture.asset('assets/icons/skills.svg'),
+              ),
+              // const Spacer(flex: 1),
+              const Expanded(
+                  flex: 4,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SkillWidget(itemCount: 1),
+                      SkillWidget(itemCount: 2),
+                      SkillWidget(itemCount: 3),
+                    ],
+                  ))
+            ],
+          ),
         ],
       ),
     );
