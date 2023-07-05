@@ -27,7 +27,11 @@ class AboutMePage extends StatelessWidget {
                     Text('About me asd;f aksdf;l kasdjf asdf ', style: Theme.of(context).textTheme.titleSmall),
                     const SizedBox(height: 16),
                     // FIXME: Button text is not showing fully
-                    const LinkButton(text: 'Download CV <~~>'),
+                    LinkButton(
+                      text: 'Download CV <~~>',
+                      // TODO: IMPLEMENT THIS
+                      onTap: () {},
+                    ),
                   ],
                 ),
               ),

@@ -8,24 +8,38 @@ enum ProjectType {
   backend,
 }
 
+enum ProjectStatus {
+  loading,
+  loaded,
+  error,
+}
+
 class ProjectProvider extends ChangeNotifier {
   ProjectProvider({required this.repository});
 
   final PortfolioRepository repository;
 
+  ProjectStatus status = ProjectStatus.loading;
+
   List<ProjectModel> _projects = [];
   List<ProjectModel> get projects => _projects;
 
   Future<void> getProjects(ProjectType type) async {
-    switch (type) {
-      case ProjectType.frontend:
-        _projects = await repository.getFrontendProjects();
-        break;
-      case ProjectType.backend:
-        _projects = await repository.getBackendProjects();
-        break;
+    try {
+      switch (type) {
+        case ProjectType.frontend:
+          _projects = await repository.getFrontendProjects();
+          break;
+        case ProjectType.backend:
+          _projects = await repository.getBackendProjects();
+          break;
+      }
+      status = ProjectStatus.loaded;
+      notifyListeners();
+    } catch (e) {
+      print(e);
+      status = ProjectStatus.error;
+      notifyListeners();
     }
-    notifyListeners();
   }
- 
 }

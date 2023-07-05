@@ -13,14 +13,13 @@ class ProjectModel {
     required this.live,
   });
 
-  
   factory ProjectModel.fromJson(Map<String, dynamic> json) {
     return ProjectModel(
       title: json['title'] as String,
       description: json['description'] as String,
       image: json['image'] as String,
-      github: json['github'] as String,
-      live: json['live'] as String,
+      github: json['github_link'] as String,
+      live: json['live_link'] as String,
     );
   }
 

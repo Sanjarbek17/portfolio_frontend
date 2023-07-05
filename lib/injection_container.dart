@@ -1,0 +1,39 @@
+import 'package:dio/dio.dart';
+import 'package:get_it/get_it.dart';
+import 'package:portfolio_frontend/core/datasources/portfolio_local_data_source.dart';
+import 'package:portfolio_frontend/core/datasources/portfolio_remote_data_source.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'core/providers/about_me_provider.dart';
+import 'core/providers/contact_provider.dart';
+import 'core/providers/project_provider.dart';
+import 'core/providers/skillset_provider.dart';
+import 'core/repositories/portfolio_repository.dart';
+
+GetIt locator = GetIt.instance;
+
+void setupLocator() async{
+  // providers
+  locator.registerFactory(() => AboutMeProvider(repository: locator()));
+  locator.registerFactory(() => ContactProvider(repository: locator()));
+  locator.registerFactory(() => ProjectProvider(repository: locator()));
+  locator.registerFactory(() => SkillsetProvider(repository: locator()));
+
+  // repositories
+  locator.registerLazySingleton(() => PortfolioRepository(localDataSource: locator(), remoteDataSource: locator()));
+
+  // data sources
+  locator.registerLazySingleton(() => PortfolioLocalDataSource(sharedPreferences: locator()));
+  locator.registerLazySingleton(() => PortfolioRemoteDataSource(dio: locator()));
+
+  // external
+  BaseOptions options = BaseOptions(
+    baseUrl: 'https://sanjarbek1718.pythonanywhere.com/',
+    sendTimeout: const Duration(seconds: 5),
+    receiveTimeout: const Duration(seconds: 5),
+  );
+  locator.registerLazySingleton(() => Dio(options));
+  // locator.registerLazySingleton(() => DataConnectionChecker());
+  final sharedPreferences = await SharedPreferences.getInstance();
+  locator.registerLazySingleton(() => sharedPreferences);
+}
