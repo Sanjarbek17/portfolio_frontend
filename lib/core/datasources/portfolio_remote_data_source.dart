@@ -32,9 +32,23 @@ class PortfolioRemoteDataSource {
   }
 
   Future<List<Skill>> getSkills() async {
-    final response = await dio.get('skills/');
+    final response = await dio.get('skill/');
     final List<dynamic> json = response.data as List<dynamic>;
     // TODO: multi language support
+    return json.map((e) => Skill.fromJson(e as Map<String, dynamic>)).toList();
+  }
+
+  Future<List<Skill>> getFrontendSkills() async {
+    final response = await dio.get('frontend-skill/');
+    final List<dynamic> json = response.data as List<dynamic>;
+
+    return json.map((e) => Skill.fromJson(e as Map<String, dynamic>)).toList();
+  }
+
+  Future<List<Skill>> getBackendSkills() async {
+    final response = await dio.get('backend-skill/');
+    final List<dynamic> json = response.data as List<dynamic>;
+
     return json.map((e) => Skill.fromJson(e as Map<String, dynamic>)).toList();
   }
 

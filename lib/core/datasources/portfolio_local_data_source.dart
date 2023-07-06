@@ -62,6 +62,26 @@ class PortfolioLocalDataSource {
     return json.map((e) => Skill.fromJson(jsonDecode(e))).toList();
   }
 
+  Future<void> cacheFrontendSkills(List<Skill> skills) async {
+    final List<String> json = skills.map((e) => e.toJson().toString()).toList();
+    await sharedPreferences.setStringList(CACHED_SKILLS, json);
+  }
+
+  Future<List<Skill>> getCachedFrontendSkills() async {
+    final List<String> json = sharedPreferences.getStringList(CACHED_SKILLS) ?? [];
+    return json.map((e) => Skill.fromJson(jsonDecode(e))).toList();
+  }
+
+  Future<void> cacheBackendSkills(List<Skill> skills) async {
+    final List<String> json = skills.map((e) => e.toJson().toString()).toList();
+    await sharedPreferences.setStringList(CACHED_SKILLS, json);
+  }
+
+  Future<List<Skill>> getCachedBackendSkills() async {
+    final List<String> json = sharedPreferences.getStringList(CACHED_SKILLS) ?? [];
+    return json.map((e) => Skill.fromJson(jsonDecode(e))).toList();
+  }
+
   Future<void> cacheContacts(List<ContactModel> contacts) async {
     final List<String> json = contacts.map((e) => e.toJson().toString()).toList();
     await sharedPreferences.setStringList(CACHED_CONTACTS, json);

@@ -57,6 +57,26 @@ class PortfolioRepository {
     return await localDataSource.getCachedSkills();
   }
 
+  Future<List<Skill>> getFrontendSkills() async {
+    final skills = await remoteDataSource.getFrontendSkills();
+    await localDataSource.cacheFrontendSkills(skills);
+    return skills;
+  }
+
+  Future<List<Skill>> getCachedFrontendSkills() async {
+    return await localDataSource.getCachedFrontendSkills();
+  }
+
+  Future<List<Skill>> getBackendSkills() async {
+    final skills = await remoteDataSource.getBackendSkills();
+    await localDataSource.cacheBackendSkills(skills);
+    return skills;
+  }
+
+  Future<List<Skill>> getCachedBackendSkills() async {
+    return await localDataSource.getCachedBackendSkills();
+  }
+
   Future<List<ContactModel>> getContacts() async {
     final contacts = await remoteDataSource.getContacts();
     await localDataSource.cacheContacts(contacts);
