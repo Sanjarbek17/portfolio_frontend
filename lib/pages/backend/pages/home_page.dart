@@ -40,6 +40,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print('build');
     return Scaffold(
       backgroundColor: background,
       body: Consumer<PageIndexProvider>(builder: (context, value, child) {
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                 itemCount: pages.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  if (index==pages.length-1){
+                  if (index == pages.length - 1) {
                     return pages[index];
                   }
                   return Padding(

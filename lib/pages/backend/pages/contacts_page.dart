@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../../core/providers/contact_provider.dart';
 import '../widgets/headline_widget.dart';
 
 class ContactPage extends StatelessWidget {
@@ -38,16 +42,33 @@ class ContactPage extends StatelessWidget {
                       children: [
                         Text('Message me here', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
                         const SizedBox(height: 16),
-                        ...List.generate(
-                          3,
-                          (index) => Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(Icons.email, color: Colors.white),
-                              const SizedBox(width: 8),
-                              Text('Sanjarbek@gmail.com', style: Theme.of(context).textTheme.titleSmall),
-                            ],
-                          ),
+                        Consumer<ContactProvider>(
+                          builder: (context, provider, child) {
+                            if (provider.status == ContactStatus.initial) {
+                              print('loading');
+                              provider.getContacts();
+                              return const CircularProgressIndicator();
+                            } else if (provider.status == ContactStatus.loaded) {
+                              return SizedBox(
+                                width: 100,
+                                height: 100,
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: provider.contacts.length,
+                                  itemBuilder: (context, index) {
+                                    return messageButton(
+                                      context,
+                                      provider.contacts[index].name,
+                                      provider.contacts[index].icon,
+                                      provider.contacts[index].link,
+                                    );
+                                  },
+                                ),
+                              );
+                            } else {
+                              return const Text('Error');
+                            }
+                          },
                         ),
                       ],
                     ),
@@ -57,6 +78,26 @@ class ContactPage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 135),
+        ],
+      ),
+    );
+  }
+
+  InkWell messageButton(BuildContext context, String text, String icon, String url) {
+    print(url);
+    print(icon);
+    print(text);
+    return InkWell(
+      onTap: () {
+        launchUrl(Uri.parse(url));
+      },
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // FIXME: object prossevent error
+          SvgPicture.network(icon, width: 24, height: 24, color: Colors.white),
+          const SizedBox(width: 8),
+          Text(text, style: Theme.of(context).textTheme.titleSmall),
         ],
       ),
     );

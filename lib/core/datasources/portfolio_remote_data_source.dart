@@ -53,7 +53,7 @@ class PortfolioRemoteDataSource {
   }
 
   Future<List<ContactModel>> getContacts() async {
-    final response = await dio.get('contacts/');
+    final response = await dio.get('contact/');
     final List<dynamic> json = response.data as List<dynamic>;
     // TODO: multi language support
     return json.map((e) => ContactModel.fromJson(e as Map<String, dynamic>)).toList();
