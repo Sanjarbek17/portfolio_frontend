@@ -32,7 +32,6 @@ class PortfolioLocalDataSource {
 
   Future<List<ProjectModel>> getCachedFrontendProjects() async {
     final List<String> json = sharedPreferences.getStringList(CACHED_FRONTEND_PROJECTS) ?? [];
-    // TODO: IS GONNA WORK?
     return json.map((e) => ProjectModel.fromJson(jsonDecode(e))).toList();
   }
 

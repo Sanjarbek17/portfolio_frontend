@@ -37,7 +37,6 @@ class ProjectProvider extends ChangeNotifier {
       status = ProjectStatus.loaded;
       notifyListeners();
     } catch (e) {
-      print(e);
       status = ProjectStatus.error;
       notifyListeners();
     }

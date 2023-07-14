@@ -34,7 +34,6 @@ class SkillsetProvider extends ChangeNotifier {
 
       notifyListeners();
     } catch (e) {
-      print(e);
       status = SkillsetStatus.error;
       notifyListeners();
     }

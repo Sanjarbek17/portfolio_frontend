@@ -20,7 +20,6 @@ class AboutMeProvider extends ChangeNotifier {
       status = AboutMeStatus.loaded;
       notifyListeners();
     } catch (e) {
-      print(e);
       status = AboutMeStatus.error;
       notifyListeners();
     }

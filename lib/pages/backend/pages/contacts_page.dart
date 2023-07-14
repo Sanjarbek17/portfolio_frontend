@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +47,6 @@ class ContactPage extends StatelessWidget {
                         Consumer<ContactProvider>(
                           builder: (context, provider, child) {
                             if (provider.status == ContactStatus.initial) {
-                              print('loading');
                               provider.getContacts();
                               return const CircularProgressIndicator();
                             } else if (provider.status == ContactStatus.loaded) {
@@ -84,9 +85,6 @@ class ContactPage extends StatelessWidget {
   }
 
   InkWell messageButton(BuildContext context, String text, String icon, String url) {
-    print(url);
-    print(icon);
-    print(text);
     return InkWell(
       onTap: () {
         launchUrl(Uri.parse(url));
@@ -94,7 +92,6 @@ class ContactPage extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // FIXME: object prossevent error
           SvgPicture.network(icon, width: 24, height: 24, color: Colors.white),
           const SizedBox(width: 8),
           Text(text, style: Theme.of(context).textTheme.titleSmall),

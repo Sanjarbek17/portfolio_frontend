@@ -40,7 +40,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print('build');
     return Scaffold(
       backgroundColor: background,
       body: Consumer<PageIndexProvider>(builder: (context, value, child) {

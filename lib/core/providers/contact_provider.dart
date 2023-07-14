@@ -16,14 +16,11 @@ class ContactProvider extends ChangeNotifier {
   List<ContactModel> get contacts => _contacts;
 
   Future<void> getContacts() async {
-    print('start loading contacts');
     try {
       _contacts = await repository.getContacts();
-      print(_contacts);
       status = ContactStatus.loaded;
       notifyListeners();
     } catch (e) {
-      print(e);
       status = ContactStatus.error;
       notifyListeners();
     }

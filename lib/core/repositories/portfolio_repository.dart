@@ -7,7 +7,6 @@ import '../models/about_me_model.dart';
 import '../models/skill_model.dart';
 import '../models/contact_model.dart';
 
-// TODO: add cache logic to this repository
 class PortfolioRepository {
   PortfolioRepository({
     required this.localDataSource,
