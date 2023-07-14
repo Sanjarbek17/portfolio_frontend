@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/style/colors.dart';
-import '../providers/page_index_provider.dart';
+import '../../../core/providers/page_index_provider.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});

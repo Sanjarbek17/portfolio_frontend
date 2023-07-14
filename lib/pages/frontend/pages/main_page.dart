@@ -3,7 +3,7 @@ import 'package:portfolio_frontend/pages/backend/pages/footer_page.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-import '../../backend/providers/page_index_provider.dart';
+import '../../../core/providers/page_index_provider.dart';
 import '../widgets/navbar_widget.dart';
 import 'about_me_page.dart';
 import 'contact_page.dart';

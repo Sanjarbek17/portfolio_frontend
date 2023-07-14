@@ -3,7 +3,7 @@ import 'injection_container.dart';
 import 'package:provider/provider.dart';
 
 import 'core/style/my_theme.dart';
-import 'pages/backend/providers/page_index_provider.dart';
+import 'core/providers/page_index_provider.dart';
 import 'routes.dart';
 import 'core/providers/about_me_provider.dart';
 import 'core/providers/contact_provider.dart';

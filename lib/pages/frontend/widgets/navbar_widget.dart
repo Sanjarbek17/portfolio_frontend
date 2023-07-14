@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../backend/providers/page_index_provider.dart';
+import '../../../core/providers/page_index_provider.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
