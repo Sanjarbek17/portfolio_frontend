@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pages/backend/pages/home_page.dart' as backend_page;
-
-
+import 'pages/frontend/pages/home_page.dart' as frontend_page;
 
 abstract class RouteGenerator {
   static const String home = '/';
@@ -19,9 +18,7 @@ abstract class RouteGenerator {
         );
       case frontend:
         return MaterialPageRoute<dynamic>(
-          builder: (_) => const Scaffold(
-            body: Center(child: Text('Frontend')),
-          ),
+          builder: (_) => const frontend_page.HomePage(),
         );
       case backend:
         return MaterialPageRoute<dynamic>(

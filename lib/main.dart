@@ -45,8 +45,8 @@ class App extends StatelessWidget {
 
         debugShowCheckedModeBanner: false,
         // Compare this snippet from lib\routes.dart:
+        initialRoute: RouteGenerator.frontend,
         onGenerateRoute: RouteGenerator.generateRoute,
-        initialRoute: RouteGenerator.backend,
         onUnknownRoute: RouteGenerator.unknownRoute,
       ),
     );
