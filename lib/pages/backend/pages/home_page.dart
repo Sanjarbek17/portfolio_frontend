@@ -42,30 +42,32 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
-      body: Consumer<PageIndexProvider>(builder: (context, value, child) {
-        return Column(
-          children: [
-            const NavBar(currentPageIndex: 0),
-            Expanded(
-              child: ScrollablePositionedList.builder(
-                itemCount: pages.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  if (index == pages.length - 1) {
-                    return pages[index];
-                  }
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 180.0),
-                    child: pages[index],
-                  );
-                },
-                itemPositionsListener: itemPositionsListener,
-                itemScrollController: value.itemScrollController,
+      body: Consumer<PageIndexProvider>(
+        builder: (context, value, child) {
+          return Column(
+            children: [
+              const NavBar(currentPageIndex: 0),
+              Expanded(
+                child: ScrollablePositionedList.builder(
+                  itemCount: pages.length,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    if (index == pages.length - 1) {
+                      return pages[index];
+                    }
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 180.0),
+                      child: pages[index],
+                    );
+                  },
+                  itemPositionsListener: itemPositionsListener,
+                  itemScrollController: value.itemScrollController,
+                ),
               ),
-            ),
-          ],
-        );
-      }),
+            ],
+          );
+        },
+      ),
     );
   }
 }

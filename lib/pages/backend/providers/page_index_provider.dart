@@ -3,11 +3,12 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class PageIndexProvider extends ChangeNotifier {
   final ItemScrollController itemScrollController = ItemScrollController();
- 
-  int index = 3;
+
+  int index = 0;
 
   void changePageIndex(int index) {
     this.index = index;
+    print(index);
     notifyListeners();
   }
 
