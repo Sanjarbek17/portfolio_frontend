@@ -5,30 +5,34 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Text('Sanjarbek S.', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              navbarButton('Home', selected: 0),
-              const SizedBox(width: 30),
-              navbarButton('Projects', selected: 1),
-              const SizedBox(width: 30),
-              navbarButton('About', selected: 2),
-              const SizedBox(width: 30),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-                color: const Color(0xFF5221E6),
-                child: navbarButton('Contact', selected: 3),
-              ),
-              const SizedBox(width: 30),
-            ],
-          )
-        ],
+    return Container(
+      color: Colors.black.withOpacity(0.5),
+      padding: const EdgeInsets.symmetric(horizontal: 82),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text('Sanjarbek S.', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                navbarButton('Home', selected: 0),
+                const SizedBox(width: 30),
+                navbarButton('Projects', selected: 1),
+                const SizedBox(width: 30),
+                navbarButton('About', selected: 2),
+                const SizedBox(width: 30),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+                  color: const Color(0xFF5221E6),
+                  child: navbarButton('Contact', selected: 3),
+                ),
+                const SizedBox(width: 30),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
