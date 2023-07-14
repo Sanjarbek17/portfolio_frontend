@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
+import 'projects_page.dart';
 import '../widgets/navbar_widget.dart';
 import 'about_me_page.dart';
 import 'home_page.dart';
@@ -18,6 +19,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     AboutMePage(),
     SkillSetPage(),
+    ProjectPage(),
   ];
 
   @override

@@ -29,8 +29,6 @@ class SkillSetPage extends StatelessWidget {
                 child: GridView.count(
                   physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: 2,
-                  // crossAxisSpacing: 0.001,
-                  // mainAxisSpacing: 0.1,
                   childAspectRatio: 1.5,
                   children: const [
                     SkillSetCard(
