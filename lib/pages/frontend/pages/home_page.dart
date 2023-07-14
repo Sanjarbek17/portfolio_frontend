@@ -28,33 +28,51 @@ class _HomePageState extends State<HomePage> {
             left: 0,
             child: Image.asset(
               'assets/frontend/images/avatar.png',
-              height: MediaQuery.of(context).size.height * 0.7,
+              // height: MediaQuery.of(context).size.height * 0.7,
               // height: 700,
-              width: MediaQuery.of(context).size.width * 0.4,
+              width: MediaQuery.of(context).size.width * 0.5,
             ),
           ),
           Positioned(
               // top: 0,
-              right: 40,
-              child: Text.rich(
-                TextSpan(
+              right: 100,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    const TextSpan(
-                      text: 'I’m Robin Williams.\nA product designer \n',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 76,
-                        fontFamily: 'Sen',
-                        fontWeight: FontWeight.w700,
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'I’m Sanjarbek S. Frontend Developer ',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: MediaQuery.of(context).size.width * 0.05,
+                              fontFamily: 'Sen',
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          TextSpan(
+                            text: 'based in Uzbekistan.',
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.5),
+                              fontSize: MediaQuery.of(context).size.width * 0.05,
+                              fontFamily: 'Sen',
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    TextSpan(
-                      text: 'based in Italy.',
+                    const SizedBox(height: 32),
+                    Text(
+                      'I’m probably the most passionate designer you will ever get to work with. If you have a great project that needs some amazing skills, I’m your guy.',
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.5),
-                        fontSize: 76,
+                        color: Colors.white,
+                        fontSize: MediaQuery.of(context).size.width * 0.015,
                         fontFamily: 'Sen',
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],
