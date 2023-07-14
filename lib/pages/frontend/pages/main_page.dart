@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_frontend/pages/backend/pages/footer_page.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../widgets/navbar_widget.dart';
@@ -22,6 +23,7 @@ class _MainPageState extends State<MainPage> {
     SkillSetPage(),
     ProjectPage(),
     ContactPage(),
+    FooterPage(),
   ];
 
   @override

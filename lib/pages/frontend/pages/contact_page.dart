@@ -8,7 +8,7 @@ class ContactPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 120, horizontal: 150),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height,
+        height: MediaQuery.of(context).size.height * 0.7,
         // width: 500,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -55,11 +55,7 @@ class ContactPage extends StatelessWidget {
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           primary: const Color(0xFF5221E6),
-                          textStyle: const TextStyle(
-                            fontSize: 16,
-                            fontFamily: 'Sen',
-                            fontWeight: FontWeight.w400,
-                          ),
+                          textStyle: const TextStyle(fontSize: 16, fontFamily: 'Sen', fontWeight: FontWeight.w400),
                           padding: const EdgeInsets.symmetric(vertical: 34),
                         ),
                         child: const Text("LET’S GET STARTED"),
