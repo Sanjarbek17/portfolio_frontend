@@ -29,8 +29,13 @@ void setupLocator() async{
   // external
   BaseOptions options = BaseOptions(
     baseUrl: 'https://sanjarbek1718.pythonanywhere.com/',
+    // baseUrl: 'http://127.0.0.1:8000/',
     sendTimeout: const Duration(seconds: 5),
     receiveTimeout: const Duration(seconds: 5),
+    // headers: {
+    //   'Allow-Control-Allow-Origin': '*', // Required for CORS support to work
+    //   'Allow-Control-Allow-Methods': 'GET, HEAD, POST, PUT, DELETE, OPTIONS',
+    // }
   );
   locator.registerLazySingleton(() => Dio(options));
   // locator.registerLazySingleton(() => DataConnectionChecker());

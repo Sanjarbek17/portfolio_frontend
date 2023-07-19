@@ -8,7 +8,6 @@ class PageIndexProvider extends ChangeNotifier {
 
   void changePageIndex(int index) {
     this.index = index;
-    print(index);
     notifyListeners();
   }
 

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_frontend/core/providers/skillset_provider.dart';
@@ -34,13 +36,20 @@ class SkillSetPage extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator());
                 } else if (watch.status == SkillsetStatus.loaded) {
                   return Center(
-                    child: Expanded(
-                      child: GridView.count(
-                        // physics: const NeverScrollableScrollPhysics(),
-                        crossAxisCount: 2,
-                        childAspectRatio: 1.5,
-                        children: watch.skills.map((e) => SkillSetCard(title: e.title, description: e.description, icon: SvgPicture.network(e.icon, color: Colors.blue,),)).toList(),
-                      ),
+                    child: Row(
+                      children: [
+                          Expanded(
+                            child: ListView(
+                              children: watch.skills.getRange(0, watch.skills.length ~/ 2).map((e) => SkillSetCard(title: e.title, description: e.description, icon: SvgPicture.network(e.icon))).toList(),
+                            ),
+                          ),
+                          Expanded(
+                            child: ListView(
+                              children: watch.skills.getRange(watch.skills.length ~/ 2, watch.skills.length).map((e) => SkillSetCard(title: e.title, description: e.description, icon: SvgPicture.network(e.icon))).toList(),
+                            ),
+                          ),
+                          
+                      ],
                     ),
                   );
                 } else {

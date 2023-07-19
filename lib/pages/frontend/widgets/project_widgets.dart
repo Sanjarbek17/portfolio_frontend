@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ProjectColumn extends StatelessWidget {
@@ -47,7 +48,7 @@ class ProjectCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.network(image, fit: BoxFit.cover, scale: 0.9),
+            CachedNetworkImage(imageUrl: image, fit: BoxFit.cover),
             // const SizedBox(height: 40),
             Padding(
               padding: const EdgeInsets.all(32.0),
