@@ -47,32 +47,16 @@ class ProjectCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(image, fit: BoxFit.cover, scale: 0.9),
+            Image.network(image, fit: BoxFit.cover, scale: 0.9),
             // const SizedBox(height: 40),
             Padding(
               padding: const EdgeInsets.all(32.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontFamily: 'Sen',
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+                  Text(title, style: const TextStyle(color: Colors.white, fontSize: 24, fontFamily: 'Sen', fontWeight: FontWeight.w700)),
                   const SizedBox(height: 20),
-                  Text(
-                    description,
-                    style: const TextStyle(
-                      color: Color(0xFF8491A0),
-                      fontSize: 18,
-                      fontFamily: 'Sen',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                  Text(description, style: const TextStyle(color: Color(0xFF8491A0), fontSize: 18, fontFamily: 'Sen', fontWeight: FontWeight.w400)),
                 ],
               ),
             ),

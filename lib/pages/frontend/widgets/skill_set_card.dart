@@ -4,7 +4,7 @@ class SkillSetCard extends StatelessWidget {
   final String title;
   final String description;
   final String? author;
-  final Icon? icon;
+  final Widget? icon;
 
   const SkillSetCard({
     super.key,
@@ -20,7 +20,7 @@ class SkillSetCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         icon ?? const SizedBox(),
-        Text(title, style: TextStyle(color: Colors.white, fontSize: icon == null ? 55 : 24, fontFamily: 'Sen', fontWeight: FontWeight.w700)),
+        Text(title, style: TextStyle(color: Colors.white, fontSize: icon == null ? 34: 24, fontFamily: 'Sen', fontWeight: FontWeight.w700)),
         const SizedBox(height: 20),
         SizedBox(
           width: 370,

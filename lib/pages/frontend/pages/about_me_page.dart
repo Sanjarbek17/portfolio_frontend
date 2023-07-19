@@ -26,6 +26,7 @@ class AboutMePage extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
+                  // TODO: Add your own about me text
                   Text(
                     'I think everyone wants the same thing - relationship with humanity, peace with the metaphysical, and experience with the universe. I try to grasp these things with my values: authenticity, creativity, & hospitality.',
                     style: TextStyle(

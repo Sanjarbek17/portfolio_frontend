@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio_frontend/core/providers/skillset_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/skill_set_card.dart';
 
@@ -16,44 +19,34 @@ class SkillSetPage extends StatelessWidget {
           children: [
             const Expanded(
               flex: 4,
+              // TODO: Add your own skillset text
               child: SkillSetCard(
                 title: 'Skillset',
-                description:
-                    'With skills in over 4 different fields of design, I am the perfect person to hire when it comes to a full fledged project. Whatever your needs are, I can pretty much take on any challenge.',
+                description: 'With skills in over 4 different fields of design, I am the perfect person to hire when it comes to a full fledged project. Whatever your needs are, I can pretty much take on any challenge.',
                 author: 'Sanjarbek S.',
               ),
             ),
             Expanded(
               flex: 6,
-              child: Center(
-                child: GridView.count(
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.5,
-                  children: const [
-                    SkillSetCard(
-                      icon: Icon(Icons.code, color: Colors.blue, size: 55),
-                      title: 'Product Design',
-                      description: 'Working at Facebook has taught me a lot about how to understand users, solve problems and build great products.',
+              child: Consumer<SkillsetProvider>(builder: (context, watch, child) {
+                if (watch.status == SkillsetStatus.loading) {
+                  watch.getSkills(SkillsetType.frontend);
+                  return const Center(child: CircularProgressIndicator());
+                } else if (watch.status == SkillsetStatus.loaded) {
+                  return Center(
+                    child: Expanded(
+                      child: GridView.count(
+                        // physics: const NeverScrollableScrollPhysics(),
+                        crossAxisCount: 2,
+                        childAspectRatio: 1.5,
+                        children: watch.skills.map((e) => SkillSetCard(title: e.title, description: e.description, icon: SvgPicture.network(e.icon, color: Colors.blue,),)).toList(),
+                      ),
                     ),
-                    SkillSetCard(
-                      icon: Icon(Icons.code, color: Colors.blue, size: 55),
-                      title: 'Product Design',
-                      description: 'Working at Facebook has taught me a lot about how to understand users, solve problems and build great products.',
-                    ),
-                    SkillSetCard(
-                      icon: Icon(Icons.code, color: Colors.blue, size: 55),
-                      title: 'Product Design',
-                      description: 'Working at Facebook has taught me a lot about how to understand users, solve problems and build great products.',
-                    ),
-                    SkillSetCard(
-                      icon: Icon(Icons.code, color: Colors.blue, size: 55),
-                      title: 'Product Design',
-                      description: 'Working at Facebook has taught me a lot about how to understand users, solve problems and build great products.',
-                    ),
-                  ],
-                ),
-              ),
+                  );
+                } else {
+                  return const Center(child: Text('Error'));
+                }
+              }),
             ),
           ],
         ),
