@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio_frontend/core/models/skill_model.dart';
 import 'package:portfolio_frontend/core/providers/skillset_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/providers/about_me_provider.dart';
 import '../widgets/headline_widget.dart';
@@ -37,11 +38,11 @@ class AboutMePage extends StatelessWidget {
                         children: [
                           Text(provider.aboutMe!.description, style: Theme.of(context).textTheme.titleSmall),
                           const SizedBox(height: 16),
-                          // FIXME: Button text is not showing fully
                           LinkButton(
                             text: 'Download CV <~~>',
-                            // TODO: IMPLEMENT THIS
-                            onTap: () {},
+                            onTap: () {
+                              launchUrl(Uri.parse('https://sanjarbek1718.pythonanywhere.com/media/cv.pdf'));
+                            },
                           ),
                         ],
                       ),

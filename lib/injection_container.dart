@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:portfolio_frontend/core/datasources/portfolio_local_data_source.dart';
 import 'package:portfolio_frontend/core/datasources/portfolio_remote_data_source.dart';
+import 'package:portfolio_frontend/core/providers/page_index_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/providers/about_me_provider.dart';
@@ -12,12 +13,13 @@ import 'core/repositories/portfolio_repository.dart';
 
 GetIt locator = GetIt.instance;
 
-void setupLocator() async{
+void setupLocator() async {
   // providers
   locator.registerFactory(() => AboutMeProvider(repository: locator()));
   locator.registerFactory(() => ContactProvider(repository: locator()));
   locator.registerFactory(() => ProjectProvider(repository: locator()));
   locator.registerFactory(() => SkillsetProvider(repository: locator()));
+  locator.registerFactory(() => PageIndexProvider());
 
   // repositories
   locator.registerLazySingleton(() => PortfolioRepository(localDataSource: locator(), remoteDataSource: locator()));

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_frontend/pages/backend/pages/footer_page.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
+import '../../../core/providers/providers.dart';
 import '../../../core/style/colors.dart';
-import '../../../core/providers/page_index_provider.dart';
 import '../widgets/nav_bar_widget.dart';
 import 'about_me_page.dart';
 import 'contacts_page.dart';
+import 'footer_page.dart';
 import 'main_page.dart';
 import 'projects_page.dart';
 

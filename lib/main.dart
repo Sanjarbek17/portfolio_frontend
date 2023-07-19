@@ -24,19 +24,19 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<PageIndexProvider>(
-          create: (_) => PageIndexProvider(),
+          create: (_) => locator(),
         ),
         ChangeNotifierProvider<AboutMeProvider>(
-          create: (_) => AboutMeProvider(repository: locator()),
+          create: (_) => locator(),
         ),
         ChangeNotifierProvider<ContactProvider>(
-          create: (_) => ContactProvider(repository: locator()),
+          create: (_) => locator(),
         ),
         ChangeNotifierProvider<ProjectProvider>(
-          create: (_) => ProjectProvider(repository: locator()),
+          create: (_) => locator(),
         ),
         ChangeNotifierProvider<SkillsetProvider>(
-          create: (_) => SkillsetProvider(repository: locator()),
+          create: (_) => locator(),
         ),
       ],
       child: MaterialApp(

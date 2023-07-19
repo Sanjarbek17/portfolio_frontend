@@ -28,7 +28,7 @@ class AboutMePage extends StatelessWidget {
                   ),
                   // TODO: Add your own about me text
                   Text(
-                    'I think everyone wants the same thing - relationship with humanity, peace with the metaphysical, and experience with the universe. I try to grasp these things with my values: authenticity, creativity, & hospitality.',
+                    'I think everyone wants the thing - relationship with humanity, peace with the metaphysical, and experience with the universe. I try to grasp these things with my values: authenticity, creativity, & hospitality.',
                     style: TextStyle(
                       color: Color(0xFF5B6876),
                       fontSize: 18,
