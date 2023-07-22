@@ -26,9 +26,8 @@ class AboutMePage extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  // TODO: Add your own about me text
                   Text(
-                    'I think everyone wants the thing - relationship with humanity, peace with the metaphysical, and experience with the universe. I try to grasp these things with my values: authenticity, creativity, & hospitality.',
+                    "I'm a Flutter developer who loves creating mobile apps that bring people together, promote inner peace, and provide unforgettable experiences. For me, it's all about being genuine, thinking outside the box, and making users feel at home in the apps I develop.",
                     style: TextStyle(
                       color: Color(0xFF5B6876),
                       fontSize: 18,

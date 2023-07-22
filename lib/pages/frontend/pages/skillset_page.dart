@@ -40,12 +40,12 @@ class SkillSetPage extends StatelessWidget {
                       children: [
                           Expanded(
                             child: ListView(
-                              children: watch.skills.getRange(0, watch.skills.length ~/ 2).map((e) => SkillSetCard(title: e.title, description: e.description, icon: SvgPicture.network(e.icon))).toList(),
+                              children: watch.skills.getRange(0, watch.skills.length ~/ 2).map((e) => SkillSetCard(title: e.title, description: e.description, icon: SvgPicture.network(e.icon, color: Colors.blue, width: 50, height: 50))).toList(),
                             ),
                           ),
                           Expanded(
                             child: ListView(
-                              children: watch.skills.getRange(watch.skills.length ~/ 2, watch.skills.length).map((e) => SkillSetCard(title: e.title, description: e.description, icon: SvgPicture.network(e.icon))).toList(),
+                              children: watch.skills.getRange(watch.skills.length ~/ 2, watch.skills.length).map((e) => SkillSetCard(title: e.title, description: e.description, icon: SvgPicture.network(e.icon, color: Colors.blue, width: 50,height: 50,))).toList(),
                             ),
                           ),
                           

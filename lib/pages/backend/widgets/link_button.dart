@@ -13,13 +13,12 @@ class LinkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // FIXME: It does no viewing correctly in small screens
     return Padding(
       padding: const EdgeInsets.only(right: 1.0),
       child: Align(
         alignment: Alignment.centerLeft,
         child: SizedBox(
-          width: 133,
+          width: 120,
           height: 37,
           child: InkWell(
             onTap: onTap,

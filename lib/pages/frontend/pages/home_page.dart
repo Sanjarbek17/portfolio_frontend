@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(height: 32),
                   // TODO: Add your own about me text
                   Text(
-                    'I’m probably the most passionate designer you will ever get to work with. If you have a great project that needs some amazing skills, I’m your guy.',
+                    'I’m probably the most passionate frontend developer you will ever get to work with. If you have a great project that needs some amazing skills, I’m your guy.',
                     style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.width * 0.015, fontFamily: 'Sen', fontWeight: FontWeight.w400),
                   ),
                 ],
