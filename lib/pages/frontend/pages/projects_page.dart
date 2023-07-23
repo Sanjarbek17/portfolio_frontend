@@ -17,6 +17,7 @@ class ProjectPage extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         } else if (watch.status == ProjectStatus.loaded) {
           return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
                Expanded(
                 child: ProjectColumn(

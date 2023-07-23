@@ -1,11 +1,21 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/message_input.dart';
 
-class ContactPage extends StatelessWidget {
+class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
+
+  @override
+  State<ContactPage> createState() => _ContactPageState();
+}
+
+class _ContactPageState extends State<ContactPage> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController messageController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -47,17 +57,17 @@ class ContactPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 25),
                 child: Column(
                   children: [
-                    const MesageInput(name: 'Name'),
+                    MesageInput(name: 'Name', controller: nameController),
                     const SizedBox(height: 20),
-                    const MesageInput(name: 'Email'),
+                    MesageInput(name: 'Email', controller: emailController),
                     const SizedBox(height: 20),
-                    const MesageInput(name: 'Message', maxLines: 5),
+                    MesageInput(name: 'Message', maxLines: 5, controller: messageController),
                     const SizedBox(height: 20),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
                         // TODO: Add your own email address
-                        onPressed: () {},
+                        onPressed: sendMail,
                         style: ElevatedButton.styleFrom(
                           primary: const Color(0xFF5221E6),
                           textStyle: const TextStyle(fontSize: 16, fontFamily: 'Sen', fontWeight: FontWeight.w400),
@@ -72,6 +82,45 @@ class ContactPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void sendMail() async {
+    BaseOptions options = BaseOptions(
+      baseUrl: 'https://api.telegram.org/bot6013215099:AAEmR2q2ZeacjPwafIeXbiN3mvPz8X7Xip4',
+      connectTimeout: const Duration(seconds: 10),
+      receiveTimeout: const Duration(seconds: 10),
+    );
+    Dio dio = Dio(options);
+
+    try {
+      await dio.post(
+        '/sendMessage',
+        data: {
+          'chat_id': '555351863',
+          'text': """
+Name: ${nameController.text}
+Email: ${emailController.text}
+Message: ${messageController.text}
+""",
+        },
+      );
+      nameController.clear();
+      emailController.clear();
+      messageController.clear();
+      showsnackBar('Message sent successfully');
+    } catch (e) {
+      print(e);
+      showsnackBar('Message sending failed');
+    }
+  }
+
+  void showsnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        duration: const Duration(seconds: 2),
       ),
     );
   }
