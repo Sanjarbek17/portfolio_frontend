@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'injection_container.dart';
 import 'package:provider/provider.dart';
 
@@ -10,8 +11,9 @@ import 'core/providers/contact_provider.dart';
 import 'core/providers/project_provider.dart';
 import 'core/providers/skillset_provider.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   setupLocator();
   runApp(const App());
 }

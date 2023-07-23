@@ -2,6 +2,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../widgets/message_input.dart';
 
@@ -87,8 +88,10 @@ class _ContactPageState extends State<ContactPage> {
   }
 
   void sendMail() async {
+    if (!validate()) return;
+    String? token = dotenv.env['TOKEN'];
     BaseOptions options = BaseOptions(
-      baseUrl: 'https://api.telegram.org/bot6013215099:AAEmR2q2ZeacjPwafIeXbiN3mvPz8X7Xip4',
+      baseUrl: 'https://api.telegram.org/bot$token',
       connectTimeout: const Duration(seconds: 10),
       receiveTimeout: const Duration(seconds: 10),
     );
@@ -111,7 +114,6 @@ Message: ${messageController.text}
       messageController.clear();
       showsnackBar('Message sent successfully');
     } catch (e) {
-      print(e);
       showsnackBar('Message sending failed');
     }
   }
@@ -123,5 +125,22 @@ Message: ${messageController.text}
         duration: const Duration(seconds: 2),
       ),
     );
+  }
+
+  bool validate() {
+    // show snackbar if any of the fields are empty
+
+    if (nameController.text.isEmpty) {
+      showsnackBar('Name cannot be empty');
+      return false;
+    } else if (emailController.text.isEmpty) {
+      showsnackBar('Email cannot be empty');
+      return false;
+    } else if (messageController.text.isEmpty) {
+      showsnackBar('Message cannot be empty');
+      return false;
+    } else {
+      return true;
+    }
   }
 }
