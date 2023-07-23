@@ -67,7 +67,6 @@ class _ContactPageState extends State<ContactPage> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        // TODO: Add your own email address
                         onPressed: sendMail,
                         style: ElevatedButton.styleFrom(
                           primary: const Color(0xFF5221E6),

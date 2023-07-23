@@ -29,7 +29,6 @@ class NavBar extends StatelessWidget {
                   height: 190,
                   color: gray,
                 ),
-                // FIXME: bu  pressing because its out of the stack
                 const SizedBox(height: 8),
                 const InkWell(child: Icon(Icons.discord, color: gray, size: 17)),
                 const SizedBox(height: 8),

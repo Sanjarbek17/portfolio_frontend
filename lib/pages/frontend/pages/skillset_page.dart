@@ -21,7 +21,6 @@ class SkillSetPage extends StatelessWidget {
           children: [
             const Expanded(
               flex: 4,
-              // TODO: Add your own skillset text
               child: SkillSetCard(
                 title: 'Skillset',
                 description: 'With skills in over 4 different fields of flutter, I am the perfect person to hire when it comes to a full fledged project. Whatever your needs are, I can pretty much take on any challenge.',
