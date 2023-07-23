@@ -19,9 +19,9 @@ class ProjectPage extends StatelessWidget {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Expanded(
+              Expanded(
                 child: ProjectColumn(
-                  projectList: watch.projects.getRange(0, watch.projects.length ~/ 2).map((e) => ProjectCard(title: e.title, description: e.description, image: e.image)).toList(),
+                  projectList: watch.projects.getRange(0, watch.projects.length ~/ 2).map((e) => ProjectCard(projectModel: e)).toList(),
                   child: const Padding(
                     padding: EdgeInsets.only(right: 81.0, bottom: 81.0),
                     child: Column(
@@ -46,7 +46,7 @@ class ProjectPage extends StatelessWidget {
               Expanded(
                   child: ProjectColumn(
                 reverse: true,
-                projectList: watch.projects.getRange(watch.projects.length ~/ 2, watch.projects.length).map((e) => ProjectCard(title: e.title, description: e.description, image: e.image)).toList(),
+                projectList: watch.projects.getRange(watch.projects.length ~/ 2, watch.projects.length).map((e) => ProjectCard(projectModel: e)).toList(),
                 child: Container(
                   padding: const EdgeInsets.only(top: 80),
                   alignment: Alignment.center,

@@ -1,4 +1,5 @@
 class ProjectModel {
+  final int id;
   final String title;
   final String description;
   final String image;
@@ -6,6 +7,7 @@ class ProjectModel {
   final String live;
 
   const ProjectModel({
+    required this.id,
     required this.title,
     required this.description,
     required this.image,
@@ -15,6 +17,7 @@ class ProjectModel {
 
   factory ProjectModel.fromJson(Map<String, dynamic> json) {
     return ProjectModel(
+      id: json['id'] as int,
       title: json['title'] as String,
       description: json['description'] as String,
       image: json['image'] as String,
@@ -25,6 +28,7 @@ class ProjectModel {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'title': title,
       'description': description,
       'image': image,
