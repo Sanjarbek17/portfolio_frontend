@@ -3,7 +3,7 @@ import 'package:portfolio_frontend/enums/device_screen_type.dart';
 import 'package:portfolio_frontend/responsive/responsive_builder.dart';
 
 class ScreenTypeLayout extends StatelessWidget {
-  // Mobile will be returned by default
+  // mobile will be returned by default
   final Widget mobile;
   final Widget? tablet;
   final Widget? desktop;
@@ -19,15 +19,15 @@ class ScreenTypeLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) {
-        // If sizing indicates Tablet and we have a tablet widget then return
-        if (sizingInformation.deviceScreenType == DeviceScreenType.Tablet) {
+        // If sizing indicates tablet and we have a tablet widget then return
+        if (sizingInformation.deviceScreenType == DeviceScreenType.tablet) {
           if (tablet != null) {
             return tablet as Widget;
           }
         }
 
         // If sizing indicates desktop and we have a desktop widget then return
-        if (sizingInformation.deviceScreenType == DeviceScreenType.Desktop) {
+        if (sizingInformation.deviceScreenType == DeviceScreenType.desktop) {
           if (desktop != null) {
             return desktop as Widget;
           }

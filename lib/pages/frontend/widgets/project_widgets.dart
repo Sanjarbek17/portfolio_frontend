@@ -73,7 +73,7 @@ class _ProjectCardState extends State<ProjectCard> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     CachedNetworkImage(imageUrl: widget.projectModel.image, fit: BoxFit.cover),
-                    // const SizedBox(height: 40),
+                    const SizedBox(height: 40),
                     Padding(
                       padding: const EdgeInsets.all(32.0),
                       child: Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: 'I’m Sanjarbek S. Frontend Developer ',
+                          text: 'I’m Sanjarbek S. Frontend Developer '.tr,
                           style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.width * 0.05, fontFamily: 'Sen', fontWeight: FontWeight.w700),
                         ),
                         TextSpan(
