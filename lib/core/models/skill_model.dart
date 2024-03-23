@@ -1,3 +1,6 @@
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_utils/get_utils.dart';
+
 class Skill {
   final String title;
   final String description;
@@ -10,9 +13,10 @@ class Skill {
   });
 
   factory Skill.fromJson(Map<String, dynamic> json) {
+    
     return Skill(
-      title: json['title'] as String,
-      description: json['description'] as String,
+      title: json['title_${Get.locale?.languageCode}'] as String,
+      description: json['description_${Get.locale?.languageCode}'] as String,
       icon: json['icon'] as String,
     );
   }

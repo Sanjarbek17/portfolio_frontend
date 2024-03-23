@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.width * 0.05, fontFamily: 'Sen', fontWeight: FontWeight.w700),
                         ),
                         TextSpan(
-                          text: 'based in Uzbekistan.',
+                          text: 'based in Uzbekistan.'.tr,
                           style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: MediaQuery.of(context).size.width * 0.05, fontFamily: 'Sen', fontWeight: FontWeight.w700),
                         ),
                       ],
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(height: 32),
                   Text(
-                    'I’m probably the most passionate frontend developer you will ever get to work with. If you have a great project that needs some amazing skills, I’m your guy.',
+                    'I’m probably the most passionate frontend developer you will ever get to work with. If you have a great project that needs some amazing skills, I’m your guy.'.tr,
                     style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.width * 0.015, fontFamily: 'Sen', fontWeight: FontWeight.w400),
                   ),
                 ],

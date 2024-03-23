@@ -24,6 +24,11 @@ class ProjectProvider extends ChangeNotifier {
   List<ProjectModel> _projects = [];
   List<ProjectModel> get projects => _projects;
 
+  void resetStatus() {
+    status = ProjectStatus.loading;
+    notifyListeners();
+  }
+
   Future<void> getProjects(ProjectType type) async {
     try {
       switch (type) {

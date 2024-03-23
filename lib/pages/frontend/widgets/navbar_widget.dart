@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:portfolio_frontend/controllers/language_controller.dart';
+import 'package:portfolio_frontend/core/providers/providers.dart';
 import 'package:provider/provider.dart';
-
-import '../../../core/providers/page_index_provider.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -20,22 +19,22 @@ class NavBar extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Sanjarbek S.', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+              Text('Sanjarbek S.'.tr, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   navbarButton(context, 'Home'.tr, selected: 0),
                   const SizedBox(width: 30),
-                  navbarButton(context, 'About', selected: 1),
+                  navbarButton(context, 'About'.tr, selected: 1),
                   const SizedBox(width: 30),
-                  navbarButton(context, 'SkillSeet', selected: 2),
+                  navbarButton(context, 'SkillSet'.tr, selected: 2),
                   const SizedBox(width: 30),
-                  navbarButton(context, 'Projects', selected: 3),
+                  navbarButton(context, 'Projects'.tr, selected: 3),
                   const SizedBox(width: 30),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
                     color: const Color(0xFF5221E6),
-                    child: navbarButton(context, 'Contact', selected: 4),
+                    child: navbarButton(context, 'Contact'.tr, selected: 4),
                   ),
                   const SizedBox(width: 30),
                   DropdownButton(
@@ -53,6 +52,10 @@ class NavBar extends StatelessWidget {
                         .toList(),
                     onChanged: (language) {
                       controller.setLanguage(Locale(language!.languageCode, language.countryCode));
+
+                      // update models
+                      context.read<ProjectProvider>().resetStatus();
+                      context.read<SkillsetProvider>().resetStatus();
                     },
                   )
                 ],
