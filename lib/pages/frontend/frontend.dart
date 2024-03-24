@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_frontend/core/custom_widgets/not_supported.dart';
+import 'package:portfolio_frontend/pages/frontend/mobile/main_page.dart' as mobile;
+import 'package:portfolio_frontend/pages/frontend/desktop/main_page.dart' as desktop;
+// import 'package:portfolio_frontend/pages/frontend/tablet/main_page.dart' as tablet;
 import 'package:portfolio_frontend/responsive/screen_type_layout.dart';
 
 class FrotendPage extends StatelessWidget {
@@ -8,7 +10,9 @@ class FrotendPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ScreenTypeLayout(
-      mobile: NotSupported(),
+      mobile: mobile.MainPage(),
+      tablet: desktop.MainPage(),
+      desktop: desktop.MainPage(),
     );
   }
 }

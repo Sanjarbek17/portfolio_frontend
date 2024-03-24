@@ -58,7 +58,6 @@ class App extends StatelessWidget {
           locale: controller.locale,
           translations: Messages(languages: languages),
           fallbackLocale: Locale(AppConstants.languages[0].languageCode, AppConstants.languages[0].countryCode),
-
           debugShowCheckedModeBanner: false,
           // Compare this snippet from lib\routes.dart:
           initialRoute: RouteGenerator.frontend,
