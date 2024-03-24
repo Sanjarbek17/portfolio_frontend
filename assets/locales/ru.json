@@ -25,5 +25,8 @@
     "Sanjarbek": "Санжарбек",
     "Fun fact I'm also backend developer": "Интересный факт: я еще и бэкенд-разработчик",
     "Media": "Медиа",
-    "© 2021 Sanjarbek Saidov. All rights reserved.": "© 2021 Санжарбек Саидов. Все права защищены."
+    "© 2021 Sanjarbek Saidov. All rights reserved.": "© 2021 Санжарбек Саидов. Все права защищены.",
+    "Name cannot be empty": "Имя не может быть пустым",
+    "Email cannot be empty": "Электронная почта не может быть пустой",
+    "Message cannot be empty": "Сообщение не может быть пустым"
 }

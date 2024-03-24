@@ -115,13 +115,13 @@ Message: ${messageController.text}
     // show snackbar if any of the fields are empty
 
     if (nameController.text.isEmpty) {
-      showsnackBar('Name cannot be empty');
+      showsnackBar('Name cannot be empty'.tr);
       return false;
     } else if (emailController.text.isEmpty) {
-      showsnackBar('Email cannot be empty');
+      showsnackBar('Email cannot be empty'.tr);
       return false;
     } else if (messageController.text.isEmpty) {
-      showsnackBar('Message cannot be empty');
+      showsnackBar('Message cannot be empty'.tr);
       return false;
     } else {
       return true;
