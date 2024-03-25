@@ -23,18 +23,18 @@ class NavBar extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  navbarButton(context, 'Home'.tr, selected: 0),
+                  NavbarButton(context: context, text: 'Home'.tr, selected: 0),
                   const SizedBox(width: 30),
-                  navbarButton(context, 'About'.tr, selected: 1),
+                  NavbarButton(context: context, text: 'About'.tr, selected: 1),
                   const SizedBox(width: 30),
-                  navbarButton(context, 'SkillSet'.tr, selected: 2),
+                  NavbarButton(context: context, text: 'SkillSet'.tr, selected: 2),
                   const SizedBox(width: 30),
-                  navbarButton(context, 'Projects'.tr, selected: 3),
+                  NavbarButton(context: context, text: 'Projects'.tr, selected: 3),
                   const SizedBox(width: 30),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
                     color: const Color(0xFF5221E6),
-                    child: navbarButton(context, 'Contact'.tr, selected: 4),
+                    child: NavbarButton(context: context, text: 'Contact'.tr, selected: 4),
                   ),
                   const SizedBox(width: 30),
                   DropdownButton(
@@ -66,8 +66,22 @@ class NavBar extends StatelessWidget {
       );
     });
   }
+}
 
-  TextButton navbarButton(BuildContext context, String text, {int selected = 0}) {
+class NavbarButton extends StatelessWidget {
+  const NavbarButton({
+    super.key,
+    required this.context,
+    required this.text,
+    required this.selected,
+  });
+
+  final BuildContext context;
+  final String text;
+  final int selected;
+
+  @override
+  Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
         Provider.of<PageIndexProvider>(context, listen: false).setPageIndex(selected);
