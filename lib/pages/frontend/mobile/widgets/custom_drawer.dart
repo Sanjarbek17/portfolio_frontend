@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:get/instance_manager.dart';
 import 'package:portfolio_frontend/controllers/language_controller.dart';
+import 'package:portfolio_frontend/core/providers/project_provider.dart';
+import 'package:portfolio_frontend/core/providers/skillset_provider.dart';
 import 'package:portfolio_frontend/core/style/colors.dart';
+import 'package:provider/provider.dart';
 
 import 'custom_navbar_widget.dart';
 import 'local_text.dart';
@@ -44,6 +47,10 @@ class CustomDrawer extends StatelessWidget {
                           localization.setSelectedIndex(localization.languages.indexOf(language));
 
                           // Navigator.pop(context);
+
+                          // update models
+                          context.read<ProjectProvider>().resetStatus();
+                          context.read<SkillsetProvider>().resetStatus();
                         },
                       ),
                     )
