@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
+import 'package:get/instance_manager.dart';
+import 'package:portfolio_frontend/controllers/language_controller.dart';
 import 'package:portfolio_frontend/core/style/colors.dart';
 
 import 'custom_navbar_widget.dart';
+import 'local_text.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -11,7 +14,7 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Create design for drawer
+    LocalizationController localization = Get.find<LocalizationController>();
     return Drawer(
       backgroundColor: background,
       child: Padding(
@@ -28,6 +31,23 @@ class CustomDrawer extends StatelessWidget {
             NavbarButton(context: context, text: 'Projects'.tr, selected: 3),
             const SizedBox(width: 30),
             NavbarButton(context: context, text: 'Contact'.tr, selected: 4),
+            const SizedBox(width: 30),
+            Row(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: localization.languages
+                    .map(
+                      (language) => LocalText(
+                        text: language.imageUrl,
+                        isSelected: localization.selectedIndex == localization.languages.indexOf(language) ? true : false,
+                        onPressed: () {
+                          localization.setLanguage(Locale(language.languageCode, language.countryCode));
+                          localization.setSelectedIndex(localization.languages.indexOf(language));
+
+                          // Navigator.pop(context);
+                        },
+                      ),
+                    )
+                    .toList())
           ],
         ),
       ),

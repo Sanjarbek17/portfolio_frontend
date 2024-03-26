@@ -47,11 +47,11 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         TextSpan(
                           text: 'I’m Sanjarbek S. Frontend Developer '.tr,
-                          style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.width * 0.05, fontFamily: 'Sen', fontWeight: FontWeight.w700),
+                          style: TextStyle(color: Colors.white, fontSize: MediaQuery.of(context).size.width * 0.04, fontFamily: 'Sen', fontWeight: FontWeight.w700),
                         ),
                         TextSpan(
                           text: 'based in Uzbekistan.'.tr,
-                          style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: MediaQuery.of(context).size.width * 0.05, fontFamily: 'Sen', fontWeight: FontWeight.w700),
+                          style: TextStyle(color: Colors.white.withOpacity(0.5), fontSize: MediaQuery.of(context).size.width * 0.04, fontFamily: 'Sen', fontWeight: FontWeight.w700),
                         ),
                       ],
                     ),
