@@ -96,9 +96,9 @@ Message: ${messageController.text}
       nameController.clear();
       emailController.clear();
       messageController.clear();
-      showsnackBar('Message sent successfully');
+      showsnackBar('Message sent successfully'.tr);
     } catch (e) {
-      showsnackBar('Message sending failed');
+      showsnackBar('Message sending failed'.tr);
     }
   }
 
