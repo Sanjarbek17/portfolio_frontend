@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 class AboutMePage extends StatelessWidget {
   const AboutMePage({super.key});
@@ -10,16 +11,16 @@ class AboutMePage extends StatelessWidget {
       color: const Color(0xFFFFF3E4),
       child: Row(
         children: [
-          const Expanded(
+           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 72),
+              padding: const EdgeInsets.symmetric(horizontal: 72),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'About me',
-                    style: TextStyle(
+                    'About me'.tr,
+                    style: const TextStyle(
                       color: Color(0xFF171723),
                       fontSize: 55,
                       fontFamily: 'Sen',
@@ -27,8 +28,8 @@ class AboutMePage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "I'm a Flutter developer who loves creating mobile apps that bring people together, promote inner peace, and provide unforgettable experiences. For me, it's all about being genuine, thinking outside the box, and making users feel at home in the apps I develop.",
-                    style: TextStyle(
+                    "I'm a Flutter developer who loves creating mobile apps that bring people together, promote inner peace, and provide unforgettable experiences. For me, it's all about being genuine, thinking outside the box, and making users feel at home in the apps I develop.".tr,
+                    style: const TextStyle(
                       color: Color(0xFF5B6876),
                       fontSize: 18,
                       fontFamily: 'Sen',

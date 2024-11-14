@@ -37,7 +37,7 @@ class PortfolioRemoteDataSource {
   Future<List<Skill>> getFrontendSkills() async {
     final response = await dio.get('frontend-skill/');
     final List<dynamic> json = response.data as List<dynamic>;
-
+    
     return json.map((e) => Skill.fromJson(e as Map<String, dynamic>)).toList();
   }
 

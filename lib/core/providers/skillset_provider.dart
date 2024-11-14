@@ -16,6 +16,11 @@ class SkillsetProvider extends ChangeNotifier {
   List<Skill> _skills = [];
   List<Skill> get skills => _skills;
 
+  void resetStatus() {
+    status = SkillsetStatus.loading;
+    notifyListeners();
+  }
+
   Future<void> getSkills(SkillsetType type) async {
     try {
       switch (type) {

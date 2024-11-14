@@ -3,6 +3,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 import '../widgets/message_input.dart';
 
@@ -28,28 +29,12 @@ class _ContactPageState extends State<ContactPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Expanded(
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Let’s talk business',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 55,
-                      fontFamily: 'Sen',
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  Text(
-                    'Now that you know a lot about me, let me know if you are interested to work with me.',
-                    style: TextStyle(
-                      color: Color(0xFF8491A0),
-                      fontSize: 18,
-                      fontFamily: 'Sen',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  )
+                  Text('Let’s talk business'.tr, style: const TextStyle(color: Colors.white, fontSize: 55, fontFamily: 'Sen', fontWeight: FontWeight.w700)),
+                  Text('Now that you know a lot about me, let me know if you are interested to work with me.'.tr, style: const TextStyle(color: Color(0xFF8491A0), fontSize: 18, fontFamily: 'Sen', fontWeight: FontWeight.w400)),
                 ],
               ),
             ),
@@ -58,22 +43,22 @@ class _ContactPageState extends State<ContactPage> {
                 padding: const EdgeInsets.only(left: 25),
                 child: Column(
                   children: [
-                    MesageInput(name: 'Name', controller: nameController),
+                    MesageInput(name: 'Name'.tr, controller: nameController),
                     const SizedBox(height: 20),
-                    MesageInput(name: 'Email', controller: emailController),
+                    MesageInput(name: 'Email'.tr, controller: emailController),
                     const SizedBox(height: 20),
-                    MesageInput(name: 'Message', maxLines: 5, controller: messageController),
+                    MesageInput(name: 'Message'.tr, maxLines: 5, controller: messageController),
                     const SizedBox(height: 20),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: sendMail,
                         style: ElevatedButton.styleFrom(
-                          primary: const Color(0xFF5221E6),
+                          // primary: const Color(0xFF5221E6),
                           textStyle: const TextStyle(fontSize: 16, fontFamily: 'Sen', fontWeight: FontWeight.w400),
                           padding: const EdgeInsets.symmetric(vertical: 34),
                         ),
-                        child: const Text("LET’S GET STARTED"),
+                        child: Text("LET'S GET STARTED".tr),
                       ),
                     ),
                   ],
@@ -100,7 +85,7 @@ class _ContactPageState extends State<ContactPage> {
       await dio.post(
         '/sendMessage',
         data: {
-          'chat_id': '555351863',
+          'chat_id': '6389775623',
           'text': """
 Name: ${nameController.text}
 Email: ${emailController.text}
@@ -130,13 +115,13 @@ Message: ${messageController.text}
     // show snackbar if any of the fields are empty
 
     if (nameController.text.isEmpty) {
-      showsnackBar('Name cannot be empty');
+      showsnackBar('Name cannot be empty'.tr);
       return false;
     } else if (emailController.text.isEmpty) {
-      showsnackBar('Email cannot be empty');
+      showsnackBar('Email cannot be empty'.tr);
       return false;
     } else if (messageController.text.isEmpty) {
-      showsnackBar('Message cannot be empty');
+      showsnackBar('Message cannot be empty'.tr);
       return false;
     } else {
       return true;
