@@ -69,7 +69,7 @@ class _ContactPageState extends State<ContactPage> {
                       child: ElevatedButton(
                         onPressed: sendMail,
                         style: ElevatedButton.styleFrom(
-                          primary: const Color(0xFF5221E6),
+                          backgroundColor: const Color(0xFF5221E6),
                           textStyle: const TextStyle(fontSize: 16, fontFamily: 'Sen', fontWeight: FontWeight.w400),
                           padding: const EdgeInsets.symmetric(vertical: 34),
                         ),
