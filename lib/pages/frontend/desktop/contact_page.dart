@@ -54,11 +54,7 @@ class _ContactPageState extends State<ContactPage> {
                       child: ElevatedButton(
                         onPressed: sendMail,
                         style: ElevatedButton.styleFrom(
-<<<<<<< HEAD:lib/pages/frontend/pages/contact_page.dart
                           backgroundColor: const Color(0xFF5221E6),
-=======
-                          // primary: const Color(0xFF5221E6),
->>>>>>> 3321fe8286900499487d50f43883a0debdf36f23:lib/pages/frontend/desktop/contact_page.dart
                           textStyle: const TextStyle(fontSize: 16, fontFamily: 'Sen', fontWeight: FontWeight.w400),
                           padding: const EdgeInsets.symmetric(vertical: 34),
                         ),
