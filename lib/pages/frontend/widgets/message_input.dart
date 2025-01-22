@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MesageInput extends StatelessWidget {
@@ -23,6 +22,7 @@ class MesageInput extends StatelessWidget {
         TextField(
           controller: controller,
           maxLines: maxLines,
+          style: const TextStyle(color: Colors.white),
           decoration: const InputDecoration(
             fillColor: Color(0xFF181823),
             filled: true,

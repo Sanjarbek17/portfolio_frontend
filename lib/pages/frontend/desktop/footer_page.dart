@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:portfolio_frontend/routes.dart';
 
 import '../../../core/style/colors.dart';
@@ -29,14 +30,14 @@ class FooterPage extends StatelessWidget {
                       SvgPicture.asset('assets/icons/logo.svg', color: white),
                       const SizedBox(width: 8),
                       Text(
-                        'Sanjarbek',
+                        'Sanjarbek'.tr,
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(color: white, fontWeight: FontWeight.w600),
                       ),
-                      Text('  sanjarbeksaidov173@gmail.com', style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 12)),
+                      Text('  sanjarbeksaidov173@gmail.com'.tr, style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 12)),
                     ],
                   ),
                   const SizedBox(height: 8),
-                  Text('Fun fact I\'m also backend developer', style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 15)),
+                  Text("Fun fact I'm also backend developer".tr, style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 15)),
                   const SizedBox(height: 8),
                   TextButton(
                       style: ButtonStyle(
@@ -48,12 +49,12 @@ class FooterPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).pushNamedAndRemoveUntil(RouteGenerator.backend, (route)=> false);
                       },
-                      child: Text('Backend', style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 15, color: white)))
+                      child: Text('Backend'.tr, style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: 15, color: white)))
                 ],
               ),
               Column(
                 children: [
-                  Text('Media', style: Theme.of(context).textTheme.titleMedium),
+                  Text('Media'.tr, style: Theme.of(context).textTheme.titleMedium),
                   const SizedBox(height: 8),
                   const Row(
                     mainAxisSize: MainAxisSize.min,
@@ -75,7 +76,7 @@ class FooterPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '© 2021 Sanjarbek Saidov. All rights reserved.',
+              '© 2021 Sanjarbek Saidov. All rights reserved.'.tr,
               style: Theme.of(context).textTheme.titleSmall!.copyWith(color: gray),
             )
           ],

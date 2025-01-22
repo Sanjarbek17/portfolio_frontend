@@ -1,3 +1,6 @@
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_utils/get_utils.dart';
+
 class ProjectModel {
   final int id;
   final String title;
@@ -18,8 +21,8 @@ class ProjectModel {
   factory ProjectModel.fromJson(Map<String, dynamic> json) {
     return ProjectModel(
       id: json['id'] as int,
-      title: json['title'] as String,
-      description: json['description'] as String,
+      title: json['title_${Get.locale?.languageCode}'] as String,
+      description: json['description_${Get.locale?.languageCode}'] as String,
       image: json['image'] as String,
       github: json['github_link'] as String,
       live: json['live_link'] as String,

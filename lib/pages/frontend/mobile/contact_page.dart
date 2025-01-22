@@ -3,6 +3,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 import '../widgets/message_input.dart';
 
@@ -21,63 +22,35 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 120, horizontal: 150),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.7,
+        height: MediaQuery.of(context).size.height,
         // width: 500,
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Let’s talk business',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 55,
-                      fontFamily: 'Sen',
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  Text(
-                    'Now that you know a lot about me, let me know if you are interested to work with me.',
-                    style: TextStyle(
-                      color: Color(0xFF8491A0),
-                      fontSize: 18,
-                      fontFamily: 'Sen',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  )
-                ],
-              ),
+            Text(
+              'Let’s talk business'.tr,
+              style: const TextStyle(color: Colors.white, fontSize: 30, fontFamily: 'Sen', fontWeight: FontWeight.w700),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 25),
-                child: Column(
-                  children: [
-                    MesageInput(name: 'Name', controller: nameController),
-                    const SizedBox(height: 20),
-                    MesageInput(name: 'Email', controller: emailController),
-                    const SizedBox(height: 20),
-                    MesageInput(name: 'Message', maxLines: 5, controller: messageController),
-                    const SizedBox(height: 20),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: sendMail,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF5221E6),
-                          textStyle: const TextStyle(fontSize: 16, fontFamily: 'Sen', fontWeight: FontWeight.w400),
-                          padding: const EdgeInsets.symmetric(vertical: 34),
-                        ),
-                        child: const Text("LET’S GET STARTED"),
-                      ),
-                    ),
-                  ],
+            Text('Now that you know a lot about me, let me know if you are interested to work with me.'.tr, style: const TextStyle(color: Color(0xFF8491A0), fontSize: 18, fontFamily: 'Sen', fontWeight: FontWeight.w400)),
+            const SizedBox(height: 20),
+            MesageInput(name: 'Name'.tr, controller: nameController),
+            const SizedBox(height: 20),
+            MesageInput(name: 'Email'.tr, controller: emailController),
+            const SizedBox(height: 20),
+            MesageInput(name: 'Message'.tr, maxLines: 5, controller: messageController),
+            const SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: sendMail,
+                style: ElevatedButton.styleFrom(
+                  // primary: const Color(0xFF5221E6),
+                  textStyle: const TextStyle(fontSize: 16, fontFamily: 'Sen', fontWeight: FontWeight.w400),
+                  padding: const EdgeInsets.symmetric(vertical: 34),
                 ),
+                child: Text("LET'S GET STARTED".tr),
               ),
             ),
           ],
@@ -100,7 +73,7 @@ class _ContactPageState extends State<ContactPage> {
       await dio.post(
         '/sendMessage',
         data: {
-          'chat_id': '555351863',
+          'chat_id': '6389775623',
           'text': """
 Name: ${nameController.text}
 Email: ${emailController.text}

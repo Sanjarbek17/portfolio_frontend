@@ -1,9 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_frontend/core/models/project_model.dart';
+import 'package:portfolio_frontend/core/style/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../../core/style/colors.dart';
 
 class ProjectColumn extends StatelessWidget {
   final bool reverse;
@@ -18,9 +17,7 @@ class ProjectColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      reverse: reverse,
+    return Column(
       children: [
         child,
         Column(
@@ -56,6 +53,7 @@ class _ProjectCardState extends State<ProjectCard> {
       }),
       child: Stack(
         children: [
+          // FIXME: this is not working on mobile
           GestureDetector(
             onTapDown: (event) {
               setState(() {
@@ -65,7 +63,7 @@ class _ProjectCardState extends State<ProjectCard> {
               });
             },
             child: Container(
-                width: MediaQuery.of(context).size.width * 0.43,
+                width: MediaQuery.of(context).size.width,
                 margin: const EdgeInsets.only(bottom: 25),
                 color: const Color(0xFF181823),
                 child: Column(
@@ -75,8 +73,9 @@ class _ProjectCardState extends State<ProjectCard> {
                     CachedNetworkImage(imageUrl: widget.projectModel.image, fit: BoxFit.cover),
                     const SizedBox(height: 40),
                     Padding(
-                      padding: const EdgeInsets.all(32.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(widget.projectModel.title, style: const TextStyle(color: Colors.white, fontSize: 24, fontFamily: 'Sen', fontWeight: FontWeight.w700)),
