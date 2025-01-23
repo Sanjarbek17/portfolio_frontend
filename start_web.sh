@@ -1,1 +1,1 @@
-flutter build web --web-renderer canvaskit --base-href "/portfolio_template/" --output="/Users/sanjarbeksaidov/githubfolders/portofolio_backend/portfolio_template"
+flutter build web --web-renderer canvaskit --base-href "//portfolio_template//" --output="D:\Documents\backend\portofolio_backend\portfolio_template"

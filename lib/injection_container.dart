@@ -30,7 +30,7 @@ void setupLocator() async {
 
   // external
   BaseOptions options = BaseOptions(
-    baseUrl: 'https://sanjarbek17.uz/',
+    baseUrl: 'https://www.sanjarbek17.uz/',
     // baseUrl: 'http://127.0.0.1:8000/',
     sendTimeout: const Duration(seconds: 5),
     receiveTimeout: const Duration(seconds: 5),
