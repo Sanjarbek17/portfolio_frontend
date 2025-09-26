@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:get/get_utils/get_utils.dart';
+import 'package:get/get.dart';
 import 'package:portfolio_frontend/controllers/language_controller.dart';
 import 'package:portfolio_frontend/core/providers/providers.dart';
 import 'package:provider/provider.dart';
@@ -37,6 +38,19 @@ class NavBar extends StatelessWidget {
                     child: NavbarButton(context: context, text: 'Contact'.tr, selected: 4),
                   ),
                   const SizedBox(width: 30),
+                  // Admin Access Button
+                  IconButton(
+                    onPressed: () {
+                      Get.toNamed('/admin');
+                    },
+                    icon: const Icon(
+                      Icons.admin_panel_settings,
+                      color: Color(0xFF00D4AA),
+                      size: 24,
+                    ),
+                    tooltip: 'Admin Panel',
+                  ),
+                  const SizedBox(width: 20),
                   DropdownButton(
                     value: controller.locale,
                     dropdownColor: Colors.black,

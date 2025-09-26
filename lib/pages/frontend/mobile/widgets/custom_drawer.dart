@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:get/instance_manager.dart';
+import 'package:get/get.dart';
 import 'package:portfolio_frontend/controllers/language_controller.dart';
 import 'package:portfolio_frontend/core/providers/project_provider.dart';
 import 'package:portfolio_frontend/core/providers/skillset_provider.dart';
@@ -34,6 +35,26 @@ class CustomDrawer extends StatelessWidget {
             NavbarButton(context: context, text: 'Projects'.tr, selected: 3),
             const SizedBox(width: 30),
             NavbarButton(context: context, text: 'Contact'.tr, selected: 4),
+            const SizedBox(width: 30),
+            // Admin Access Button
+            ListTile(
+              leading: const Icon(
+                Icons.admin_panel_settings,
+                color: Color(0xFF00D4AA),
+              ),
+              title: const Text(
+                'Admin Panel',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontFamily: 'Sen',
+                ),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Get.toNamed('/admin');
+              },
+            ),
             const SizedBox(width: 30),
             Row(
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -16,6 +16,8 @@ import 'core/providers/about_me_provider.dart';
 import 'core/providers/contact_provider.dart';
 import 'core/providers/project_provider.dart';
 import 'core/providers/skillset_provider.dart';
+import 'core/providers/auth_provider.dart';
+import 'core/providers/admin_project_provider.dart';
 
 typedef Dict = Map<String, Map<String, String>>;
 
@@ -49,6 +51,12 @@ class App extends StatelessWidget {
         ),
         ChangeNotifierProvider<SkillsetProvider>(
           create: (_) => locator(),
+        ),
+        ChangeNotifierProvider<AuthProvider>(
+          create: (_) => AuthProvider(),
+        ),
+        ChangeNotifierProvider<AdminProjectProvider>(
+          create: (_) => AdminProjectProvider(),
         ),
       ],
       child: GetBuilder<LocalizationController>(builder: (controller) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:get/get.dart';
 
 import '../../../core/providers/page_index_provider.dart';
 import '../widgets/navbar_widget.dart';
@@ -44,6 +45,19 @@ class _MainPageState extends State<MainPage> {
                 },
               ),
               const Positioned(child: NavBar()),
+              // Floating Admin Access Button
+              Positioned(
+                bottom: 20,
+                right: 20,
+                child: FloatingActionButton(
+                  onPressed: () => Get.toNamed('/admin'),
+                  backgroundColor: const Color(0xFF00D4AA),
+                  child: const Icon(
+                    Icons.admin_panel_settings,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
             ],
           );
         },
